@@ -40,14 +40,14 @@ Nmap done: ... scanned in 2.50 seconds
 ```
 ## 2º PASSO - Explorando vulnerabilidades 👨‍💻
 
-#### Primeiro vamos testar as conexões e portas abertas do IP do Alvo (192.168.145.13)
+#### Teste a conexão com o IP do Alvo (192.168.145.13)
 
 > $ ping -c 3 192.168.145.13
 
 Onde:  
 **-c** → count (contagem) | **3**  → quantidade de pings
 
-#### Testando conexão bem-sucedida, vamos verificar as portas abertas:
+#### Testando conexão bem-sucedida, verifique as portas abertas:
 
 > $ nmap -sV -p **21,22,80,445,139** 192.168.145.13
 
@@ -72,3 +72,15 @@ at http://nmap.org/submit/.
 Nmap done: 1 IP adress (1 host up) scanned in 24.71seconds
 ```
 
+#### Retornando portas abertas, estabeleça uma conexão:
+
+> $ fpt 192.168.145.13
+
+**Exemplo de Retorno Esperado**:
+```
+Connected to 192.168.145.13. ← ESTABELECEU CONEXÃO ✅
+220 (vsFTPd 2.3.4)
+Name (192.168.145.13:Macbook): ← SOLICITOU USUÁRIO
+```
+
+#### Hora do Brute Force! 💥🔥
